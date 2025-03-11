@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: django-local-library01
+    runtime: python
+    buildCommand: "./build_files.sh"
+    startCommand: "gunicorn locallibrary.wsgi:application"
+    envVars:
+      - key: DATABASE_URL
+        value: postgresql://django_local_librabry_user:IDxH8hSFWTpNkYH2WXxRRd8OmTm9OX3X@dpg-cv7tk923esus73d22t3g-a/django_local_librabry
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: false
+      - key: PYTHON_VERSION
+        value: 3.9.0
